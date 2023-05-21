@@ -262,6 +262,52 @@
   <pre><code class="clojure">
   `potion# ; ~@ unquote splicing
   </code></pre>   
+  
+  <h2>interop</h2>
+  
+  <h3>static class property</h3>
+  <pre><code class="clojure">
+  java.util.Locale/JAPAN
+  </code></pre>   
+  
+  <h3>static class property</h3>
+  <pre><code class="clojure">
+  (Math/sqrt 9)
+  </code></pre>   
+  
+  <h3>creating instances</h3>
+  <pre><code class="clojure">
+  (new java.awt.Point 0 1)
+  </code></pre>   
+  
+  <h3>creating instances</h3>
+  <pre><code class="clojure">
+  (new java.util.HashMap {"foo" 42 "bar" 9 "baz" "quux"})
+  (java.util.HashMap. {"foo" 42 "bar" 9 "baz" "quux"}) ; . avoids using having to new
+  </code></pre>   
+  
+  <h3>creating instances</h3>
+  <pre><code class="clojure">
+  (js/Date.)
+  </code></pre>   
+
+  <h3>accessing instance members</h3>
+  <pre><code class="clojure">
+  (.-x (java.awt.Point. 10 20)) ; precede the field name with a dot and a hyphen
+  </code></pre>   
+  
+  <h3>calling instance methods</h3>
+  <pre><code class="clojure">
+  (.divide (java.math.BigDecimal. "42") 2M) ; 
+  </code></pre>   
+  
+  <h3>accessing instance members</h3>
+  <pre><code class="clojure">
+ (let [origin (java.awt.Point. 0 0)]
+   (set! (.-x origin) 15) ; Instance fields can be set via the set! function
+   (str origin))
+  </code></pre>   
+  
 <script>
     window.klipse_settings = {
        selector: '.clojure'

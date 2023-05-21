@@ -4,28 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <title>DDD with Clojure</title>
-<!--     <link rel="stylesheet" href="./style.css"> -->
-<!--     <link rel="icon" href="./favicon.ico" type="image/x-icon"> -->
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-    <style>
-body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
-    </style>
-  </head>
-  <body>
-    <main>
-        <h1>Welcome to DDD with Clojure</h1>  
-        <!-- Include the Klipse script tag -->
-        <script src="https://cdn.jsdelivr.net/klipse/klipse.min.js"></script>
-        <!-- Add a code block where the REPL will be displayed -->
-        <pre><code class="language-clojure" data-klipse></code></pre>
-    </main>
-<!-- 	<script src="index.js"></script> -->
-  </body>
-</html>
+
+    <link rel="stylesheet" type="text/css" href="https://storage.googleapis.com/app.klipse.tech/css/codemirror.css">
+    <link rel="stylesheet" type="text/css" href="https://viebel.github.io/klipse/css/main.css">
+</head>
+
+<body class="container">
+  <h1>Welcome to DDD with Clojure</h1>  
+  <p>Ths page is <strong>live</strong> and <strong>interactive</strong> powered by the <a href="https://github.com/viebel/klipse">klipse plugin</a>:</p>
+
+
+<h2>  Require a namespace </h2>
+
+<pre><code class="clojure">
+(ns my.first-ns
+  (:require
+    [clojure.string :as string]))
+
+(string/capitalize "klipse")
+</code></pre>
+
+
+<h2>  Require a namespace and rename some variables </h2>
+
+<pre><code class="clojure">
+(ns my.ns
+  (:require
+      [clojure.set :refer [union intersection] :rename {union UNION}]))
+      
+  [(intersection #{1 2 3} #{2 3 4})
+   (UNION #{1 2 3} #{2 3 4 5})]
+</code></pre>
 
 
 
+<br/>
+<br/>
+<br/>
+<br/>
+
+<script>
+    window.klipse_settings = {
+       selector: '.clojure'
+    };
+</script>
+
+
+
+<script src="https://storage.googleapis.com/app.klipse.tech/plugin/js/klipse_plugin.js"></script>
 </body>
 </html>

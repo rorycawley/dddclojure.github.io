@@ -203,6 +203,47 @@
   (sum-down-from 0 10)
   </code></pre>  
   
+  <h3>loop</h3>
+  <pre><code class="clojure">
+  (defn sum-down-from [initial-x]
+    (loop [sum 0, x initial-x]
+      (if (pos? x)
+        (recur (+ sum x) (dec x))
+       sum)))
+  (sum-down-from 0 10)
+  </code></pre>  
+    
+  <h2>Evaluating expressions</h2>
+  
+  <h3>inner evaluation first</h3>
+  <pre><code class="clojure">
+  (const 1 [2 3]) ; cons - constructs a sequence
+  </code></pre>    
+  
+  <h3>evaluates the items it contains first</h3>
+  <pre><code class="clojure">
+  [2 3]
+  </code></pre>    
+
+  <h3>quoting</h3>
+  <pre><code class="clojure">
+  (def age 9) 
+  (quote age) ; prevents the evaluation of the argument, evaluates to a symbol only
+  </code></pre>    
+  
+  <h3>quoting</h3>
+  <pre><code class="clojure">
+  ; (cons 1 (2 3))
+  (cons 1 (quote (2 3))) ; lists result in the first arg being used as a function that's invoked if not quoted
+  (cons 1 '(2 3)) ; shorthand
+  </code></pre>    
+  
+  <h3>syntax quoting</h3>
+  <pre><code class="clojure">
+  `(map even? [1 2 3]) ; Syntax-quote automatically qualifies all unqualified symbols in its argument
+  </code></pre>    
+  
+  
 <script>
     window.klipse_settings = {
        selector: '.clojure'

@@ -303,10 +303,17 @@
   
   <h3>accessing instance members</h3>
   <pre><code class="clojure">
- (let [origin (java.awt.Point. 0 0)]
+  (let [origin (java.awt.Point. 0 0)]
    (set! (.-x origin) 15) ; Instance fields can be set via the set! function
    (str origin))
   </code></pre>   
+  
+  <h3>calling instance methods</h3>
+  <pre><code class="clojure">
+  ; new java.util.Date().toString().endsWith("2014")
+  (.endsWith (.toString (java.util.Date.)) "2014")
+  (.. (java.util.Date.) toString (endsWith "2014")) ; .. macro makes it easier to read
+  </code></pre> 
   
 <script>
     window.klipse_settings = {

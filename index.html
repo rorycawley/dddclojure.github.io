@@ -52,62 +52,12 @@
   <pre><code class="clojure">  
   \o ; character
   </code></pre>
-  
-  <h2>Addition</h2>
-  <pre><code class="clojure">  
-  (+ 2 3)
-  </code></pre>
-  
-<h2>Use defprotocol</h2>
-
-<pre><code class="clojure">  
-(ns our.collection)
-
-(defprotocol OurCollection
-  (count [this])
-  (get [this k] [this k not-found]))
-
-(defn empty?
-  [this]
-  (zero? (count this)))
-</code></pre>
-
-<h2>  Require a namespace </h2>
-
-<pre><code class="clojure">
-(ns my.first-ns
-  (:require
-    [clojure.string :as string]))
-
-(string/capitalize "klipse")
-</code></pre>
-
-
-<h2>  Require a namespace and rename some variables </h2>
-
-<pre><code class="clojure">
-(ns my.ns
-  (:require
-      [clojure.set :refer [union intersection] :rename {union UNION}]))
-      
-  [(intersection #{1 2 3} #{2 3 4})
-   (UNION #{1 2 3} #{2 3 4 5})]
-</code></pre>
-
-
-
-<br/>
-<br/>
-<br/>
-<br/>
 
 <script>
     window.klipse_settings = {
        selector: '.clojure'
     };
 </script>
-
-
 
 <script src="https://storage.googleapis.com/app.klipse.tech/plugin/js/klipse_plugin.js"></script>
 </body>

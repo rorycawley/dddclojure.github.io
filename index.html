@@ -243,7 +243,25 @@
   `(map even? [1 2 3]) ; Syntax-quote automatically qualifies all unqualified symbols in its argument
   </code></pre>    
   
+  <h3>unquoting</h3>
+  <pre><code class="clojure">
+  `(+ 10 ~(* 3 2)) ; ~ is used to say evaluate this expression normally
+  </code></pre>      
   
+  <h3>unquoting</h3>
+  <pre><code class="clojure">
+  (let [x '(2 3)] `(1 ~x)) ; ~ is used to say evaluate this expression normally
+  </code></pre>     
+  
+  <h3>unquoting</h3>
+  <pre><code class="clojure">
+  (let [x '(2 3)] `(1 ~@x)) ; creates a new, unqualified, automatically generated symbol
+  </code></pre>   
+  
+  <h3>auto gensym</h3>
+  <pre><code class="clojure">
+  `potion# ; ~@ unquote splicing
+  </code></pre>   
 <script>
     window.klipse_settings = {
        selector: '.clojure'

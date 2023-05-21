@@ -154,6 +154,11 @@
   (arity2+ 1 2 3 4)
   </code></pre>
   
+  <pre><code class="clojure">
+  (def make-list2+ #(list %1 %2 %&)) ; #{} same as (fn )
+  (make-list2+ 1 2 3 4 5)
+  </code></pre>
+
   <h3>Functions</h3>
   <pre><code class="clojure">  
   (vector 1 2 3)

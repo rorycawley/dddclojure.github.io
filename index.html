@@ -102,8 +102,62 @@
   #{}
   #{1 2 "three" :four 0x6}
   </code></pre>
+    
+  <h2>Variables</h2>
   
+  <h3>Variables</h3>
+  <pre><code class="clojure">  
+  (def y) ; not bound
+  (def x 2) ; root binding
+  x
+  </code></pre>  
   
+  <h2>Functions</h2>
+  
+  <h3>Functions</h3>
+  
+  <pre><code class="clojure">  
+  (fn [x y]
+    (println "Creating a set")
+    #{x y}
+    1 2)
+  </code></pre>  
+
+  <pre><code class="clojure">  
+  (def make-set 
+    (fn [x y]
+      (println "Creating a set")
+      #{x y}))
+   (make-set 1 2)
+  </code></pre>  
+  
+  <pre><code class="clojure">
+  (defn make-set
+    "Takes two values and makes a set from them."
+    [x y]
+    (println "Making a set")
+    #{x y})
+  (make-set 1 2 3)
+  </code></pre>  
+
+  <pre><code class="clojure">
+  (defn make-set
+    ([x] #{x})
+    ([x y] #{x y}))
+  (make-set 2)
+  (make-set 2 3)
+  </code></pre>  
+  
+  <pre><code class="clojure">
+  (defn arity2+ [first second & more] ; destructuring forms
+    (vector first second more))
+  (arity2+ 1 2 3 4)
+  </code></pre>
+  
+  <h3>Functions</h3>
+  <pre><code class="clojure">  
+  (vector 1 2 3)
+  </code></pre>  
 
 <script>
     window.klipse_settings = {

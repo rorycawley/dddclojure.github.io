@@ -159,11 +159,50 @@
   (make-list2+ 1 2 3 4 5)
   </code></pre>
 
-  <h3>Functions</h3>
+  
   <pre><code class="clojure">  
   (vector 1 2 3)
   </code></pre>  
 
+  <h2>Blocks</h2>
+  
+  <h3>do block</h3>
+  <pre><code class="clojure">
+  (do
+    (def x 5)
+    (def y 4)
+    (+ x y)
+    [x y])
+  </code></pre>
+  
+  <h3>let local variables</h3>
+  <pre><code class="clojure">
+  (let [r 5
+        pi 3.1415
+        r-squared (* r r)]
+     (println "radius is" r)  ; implicit do
+     (* pi r-squared))
+  </code></pre>  
+  
+  <h3>recur - recursion</h3>
+  <pre><code class="clojure">
+  (defn print-down-from [x]
+    (when (pos? x) ; when positive
+      (println x) ; side effect
+      (recur (dec x)))) ; loop x - 1
+   (print-down-from 3)
+  </code></pre>  
+    
+  
+  <h3>recur - recursion</h3>
+  <pre><code class="clojure">
+  (defn sum-down-from [sum x]
+    (if (pos? x)
+      (recur (+ sum x) (dec x))
+        sum))
+  (sum-down-from 0 10)
+  </code></pre>  
+  
 <script>
     window.klipse_settings = {
        selector: '.clojure'
